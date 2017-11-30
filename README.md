@@ -5,9 +5,34 @@ certainly contain aweful contructs and wrong patterns. Please, open an issue if 
 
 ## Goals
 The repo's goal is to cover most of the functionalities of the microcontroller as a learning project for Rustlang.
-![](http://progressed.io/bar/74) Clock tree (small problems when clocking above ~60MHz)
-![](http://progressed.io/bar/74) Low power modes (not already covered)
-![](http://progressed.io/bar/74) GPIO (can read or write to, can configure to analog or alternative func, interrupt not covered)
-![](http://progressed.io/bar/74) I2C
-![](http://progressed.io/bar/74) SPI : 
-![](http://progressed.io/bar/74) Serial port to computer
+
+* Clock tree settings
+* Low power modes
+* GPIO
+* Timers with functions registration for timeouts
+* PWM output
+* Input capture
+* ADC
+* I2C  
+* SPI
+* USART
+* Serial port to computer
+* RTC with calendar functions and alarm registration (demo only, will not work because of 32k crystal miss)
+* DMA
+* SD card
+
+A small round-robin scheduler is planned as well. Will be linked here when some work has been done. 
+
+## Non goals
+The following parts will require to much work for me at the moment. May be covered in the future, or not.
+* USB
+* CAN
+
+## Already working
+* Clock tree settings : hardfault when sysclk clocked above ~60MHz. Otherwise works.
+* GPIO : can read, write, configure as analog, alternate function, can configure slew rate, pull-up/down and push-pull functionalities. Working on functions interrupt registration.
+* Serial : formatted writting is working. May not work if the baudrate is too high (Problems with baudrate calculation). Next steps are binary write/receive for custom protocol design.
+
+## Next steps
+* Create an example file for each finished part
+* Cover gpio input interrupt as a proof of concept for the other interrupt based parts.
